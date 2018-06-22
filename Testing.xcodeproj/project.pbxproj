@@ -17,7 +17,7 @@
 		741C031620DBABE300A85D2B /* TestingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C031520DBABE300A85D2B /* TestingUITests.swift */; };
 		741C032420DBB78200A85D2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 741C032320DBB78100A85D2B /* GoogleService-Info.plist */; };
 		747046BC20DCCBFF00EDB314 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747046BB20DCCBFF00EDB314 /* Logout.swift */; };
-		747046BE20DCF52A00EDB314 /* NSURLSessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747046BD20DCF52A00EDB314 /* NSURLSessionAPI.swift */; };
+		747046C420DD0A6600EDB314 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747046C320DD0A6600EDB314 /* APIHandler.swift */; };
 		8BC2415B95962580CB2588B1 /* Pods_TestingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56202EB659D9156845002E6A /* Pods_TestingUITests.framework */; };
 		E1360B744DC63C27A283BE8B /* Pods_TestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE83EE610418C825C495F3E /* Pods_TestingTests.framework */; };
 		F585027795C023ED8AF32CBE /* Pods_Testing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8B786910903AD50C6A4C0F /* Pods_Testing.framework */; };
@@ -62,7 +62,7 @@
 		741C031720DBABE300A85D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		741C032320DBB78100A85D2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		747046BB20DCCBFF00EDB314 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
-		747046BD20DCF52A00EDB314 /* NSURLSessionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSURLSessionAPI.swift; path = ../../../Documents/WeightAMinut/WeightAMinute2/MVC/Model/NSURLSessionAPI.swift; sourceTree = "<group>"; };
+		747046C320DD0A6600EDB314 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		D1FE54F549463BC09F3D3CFA /* Pods-Testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing/Pods-Testing.release.xcconfig"; sourceTree = "<group>"; };
 		E7DA1E49A4FF48A49208A439 /* Pods-TestingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestingTests/Pods-TestingTests.release.xcconfig"; sourceTree = "<group>"; };
 		EB3A1D3B8027E9B442AF5F32 /* Pods-TestingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestingTests/Pods-TestingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,12 +126,12 @@
 				741C02F220DBABDE00A85D2B /* AppDelegate.swift */,
 				741C02F420DBABDE00A85D2B /* SignIn.swift */,
 				747046BB20DCCBFF00EDB314 /* Logout.swift */,
-				747046BD20DCF52A00EDB314 /* NSURLSessionAPI.swift */,
 				741C02F620DBABDE00A85D2B /* Main.storyboard */,
 				741C02FC20DBABE300A85D2B /* Assets.xcassets */,
 				741C02FE20DBABE300A85D2B /* LaunchScreen.storyboard */,
 				741C030120DBABE300A85D2B /* Info.plist */,
 				741C02F920DBABDE00A85D2B /* Testing.xcdatamodeld */,
+				747046C320DD0A6600EDB314 /* APIHandler.swift */,
 			);
 			path = Testing;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747046BE20DCF52A00EDB314 /* NSURLSessionAPI.swift in Sources */,
+				747046C420DD0A6600EDB314 /* APIHandler.swift in Sources */,
 				741C02F520DBABDE00A85D2B /* SignIn.swift in Sources */,
 				747046BC20DCCBFF00EDB314 /* Logout.swift in Sources */,
 				741C02F320DBABDE00A85D2B /* AppDelegate.swift in Sources */,
