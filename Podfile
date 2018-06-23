@@ -6,6 +6,8 @@ target 'Testing' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    pod 'SDWebImage'
   use_frameworks!
 
   # Pods for Testing

@@ -15,7 +15,8 @@
 		741C030020DBABE300A85D2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 741C02FE20DBABE300A85D2B /* LaunchScreen.storyboard */; };
 		741C030B20DBABE300A85D2B /* TestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C030A20DBABE300A85D2B /* TestingTests.swift */; };
 		741C031620DBABE300A85D2B /* TestingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741C031520DBABE300A85D2B /* TestingUITests.swift */; };
-		741C032420DBB78200A85D2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 741C032320DBB78100A85D2B /* GoogleService-Info.plist */; };
+		742CE5BB20DE464C00A0D8EF /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CE5BA20DE464C00A0D8EF /* SignUp.swift */; };
+		742CE5C120DE617100A0D8EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 742CE5C020DE617000A0D8EF /* GoogleService-Info.plist */; };
 		747046BC20DCCBFF00EDB314 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747046BB20DCCBFF00EDB314 /* Logout.swift */; };
 		747046C420DD0A6600EDB314 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747046C320DD0A6600EDB314 /* APIHandler.swift */; };
 		8BC2415B95962580CB2588B1 /* Pods_TestingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56202EB659D9156845002E6A /* Pods_TestingUITests.framework */; };
@@ -60,7 +61,8 @@
 		741C031120DBABE300A85D2B /* TestingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		741C031520DBABE300A85D2B /* TestingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingUITests.swift; sourceTree = "<group>"; };
 		741C031720DBABE300A85D2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		741C032320DBB78100A85D2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		742CE5BA20DE464C00A0D8EF /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		742CE5C020DE617000A0D8EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		747046BB20DCCBFF00EDB314 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		747046C320DD0A6600EDB314 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		D1FE54F549463BC09F3D3CFA /* Pods-Testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing/Pods-Testing.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 		741C02E620DBABDE00A85D2B = {
 			isa = PBXGroup;
 			children = (
-				741C032320DBB78100A85D2B /* GoogleService-Info.plist */,
 				741C02F120DBABDE00A85D2B /* Testing */,
 				741C030920DBABE300A85D2B /* TestingTests */,
 				741C031420DBABE300A85D2B /* TestingUITests */,
@@ -123,8 +124,10 @@
 		741C02F120DBABDE00A85D2B /* Testing */ = {
 			isa = PBXGroup;
 			children = (
+				742CE5C020DE617000A0D8EF /* GoogleService-Info.plist */,
 				741C02F220DBABDE00A85D2B /* AppDelegate.swift */,
 				741C02F420DBABDE00A85D2B /* SignIn.swift */,
+				742CE5BA20DE464C00A0D8EF /* SignUp.swift */,
 				747046BB20DCCBFF00EDB314 /* Logout.swift */,
 				741C02F620DBABDE00A85D2B /* Main.storyboard */,
 				741C02FC20DBABE300A85D2B /* Assets.xcassets */,
@@ -286,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				741C030020DBABE300A85D2B /* LaunchScreen.storyboard in Resources */,
-				741C032420DBB78200A85D2B /* GoogleService-Info.plist in Resources */,
+				742CE5C120DE617100A0D8EF /* GoogleService-Info.plist in Resources */,
 				741C02FD20DBABE300A85D2B /* Assets.xcassets in Resources */,
 				741C02F820DBABDE00A85D2B /* Main.storyboard in Resources */,
 			);
@@ -354,6 +357,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Testing/Pods-Testing-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -361,6 +365,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -395,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				747046C420DD0A6600EDB314 /* APIHandler.swift in Sources */,
+				742CE5BB20DE464C00A0D8EF /* SignUp.swift in Sources */,
 				741C02F520DBABDE00A85D2B /* SignIn.swift in Sources */,
 				747046BC20DCCBFF00EDB314 /* Logout.swift in Sources */,
 				741C02F320DBABDE00A85D2B /* AppDelegate.swift in Sources */,

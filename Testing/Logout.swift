@@ -16,13 +16,19 @@ class Logout: UIViewController {
     }
 
     @IBAction func loggedOutTabbed(_ sender: Any) {
-//        do {
-//            try Auth.signOut()
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
+        do
+        {
+            try Auth.auth().signOut()
+            dismiss(animated: true, completion: nil)
+        }
+        catch let error as NSError
+        {
+            print (error.localizedDescription)
+        }
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+      
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

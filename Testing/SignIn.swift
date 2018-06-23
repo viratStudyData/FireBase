@@ -11,12 +11,14 @@ import Firebase
 import CoreData
 import FirebaseDatabase
 import FirebaseAuth
+import MobileCoreServices
+import SDWebImage
 
 class SignIn: UIViewController {
 
     var ref: DatabaseReference!
     
-    @IBOutlet weak var tf_Username: UITextField!
+    @IBOutlet weak var tf_Email: UITextField!
     @IBOutlet weak var tf_Password: UITextField!
     
     
@@ -25,29 +27,37 @@ class SignIn: UIViewController {
         ref = Database.database().reference()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+     
+        
+        super.viewWillAppear(animated)
+        let user = Auth.auth().currentUser;
+        
+        if ((user) != nil) {
+            print(user!.uid)
+            let obj = self.storyboard?.instantiateViewController(withIdentifier: "Logout") as! Logout
+            self.present(obj, animated: true, completion: nil)
+            
+        }
+    }
     @IBAction func actionOnSignIn(_ sender: Any) {
-        if let email = tf_Username.text, let password = tf_Password.text {
+        if let email = tf_Email.text, let password = tf_Password.text {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if let firebaseError = error {
                     print(firebaseError.localizedDescription)
                     return
                 }
-                self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
+                self.loging()
             }
-        }
-       
-        
+        }        
     }
     @IBAction func actionOnCreateAccount(_ sender: Any) {
-        if let email = tf_Username.text, let password = tf_Password.text {
-            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-                if let firebaseError = error {
-                    print(firebaseError.localizedDescription)
-                    return
-                }
-               self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
-            }
-        }
+        self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+    }
+    
+    func loging() {
+        self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -173,9 +173,9 @@ class APIHandler: NSObject {
         /******** Basic Auth *******/
         let auth = self.basicAuth()
         request.setValue("Basic \(auth)", forHTTPHeaderField: "Authorization")
-        if userObj != nil {
+       /* if userObj != nil {
 //            request.setValue("\(userObj!.token)", forHTTPHeaderField: "json-web-token")
-        }
+        }*/
         /***************************/
         
         let body = NSMutableData()
@@ -706,9 +706,9 @@ class APIHandler: NSObject {
         /******** Add Basic Auth and Token *******/
         let auth = self.basicAuth()
         request.setValue("Basic \(auth)", forHTTPHeaderField: "Authorization")
-        if userObj != nil{
+        /*if userObj != nil{
 //            request.setValue("\(userObj!.token)", forHTTPHeaderField: "json-web-token")
-        }
+        }*/
         /***************************/
         
         request.addValue("\(header)", forHTTPHeaderField: "Content-Type")
