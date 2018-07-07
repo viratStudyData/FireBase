@@ -36,7 +36,7 @@ class SignIn: UIViewController {
         
         if ((user) != nil) {
             print(user!.uid)
-            let obj = self.storyboard?.instantiateViewController(withIdentifier: "Logout") as! Logout
+            let obj = self.storyboard?.instantiateViewController(withIdentifier: "Logout") as! HomeVC
             self.present(obj, animated: true, completion: nil)
             
         }

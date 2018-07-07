@@ -9,25 +9,33 @@
 import UIKit
 import FirebaseAuth
 
-class Logout: UIViewController {
+class HomeVC: UIViewController, UITableViewDataSource {
     
+    @IBOutlet weak var tblVw: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func loggedOutTabbed(_ sender: Any) {
-        do
-        {
+        do {
             try Auth.auth().signOut()
             dismiss(animated: true, completion: nil)
-        }
-        catch let error as NSError
-        {
+        }catch let error as NSError {
             print (error.localizedDescription)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
       
+    }
+    
+    //MARK: TableView DataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+        return cell
     }
     
     override func didReceiveMemoryWarning() {
