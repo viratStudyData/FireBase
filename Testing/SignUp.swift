@@ -31,7 +31,7 @@ class SignUp: UIViewController {
     }
 
     func loging() {
-        self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
+        self.performSegue(withIdentifier: kHomeSegue, sender: nil)
     }
     
     

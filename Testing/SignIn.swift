@@ -25,27 +25,20 @@ class SignIn: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        self.checkIfUserIsLoggedIn()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-     
-        
         super.viewWillAppear(animated)
-        let user = Auth.auth().currentUser;
         
-        if ((user) != nil) {
-            print(user!.uid)
-            let obj = self.storyboard?.instantiateViewController(withIdentifier: "Logout") as! HomeVC
-            self.present(obj, animated: true, completion: nil)
-            
-        }
     }
+    
     @IBAction func actionOnSignIn(_ sender: Any) {
         if let email = tf_Email.text, let password = tf_Password.text {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if let firebaseError = error {
-                    print(firebaseError.localizedDescription)
+                    Utility_GlobleAction.showAlert("Error", message: firebaseError.localizedDescription, viewController: self, OtherButtons: ["Ok"], type: "Simple")
                     return
                 }
                 self.loging()
@@ -53,11 +46,11 @@ class SignIn: UIViewController {
         }        
     }
     @IBAction func actionOnCreateAccount(_ sender: Any) {
-        self.performSegue(withIdentifier: "SignUpSegue", sender: nil)
+        self.performSegue(withIdentifier: kSignUpSegue, sender: nil)
     }
     
     func loging() {
-        self.performSegue(withIdentifier: "LogoutSegue", sender: nil)
+        self.performSegue(withIdentifier: kHomeSegue, sender: nil)
     }
     
     override func didReceiveMemoryWarning() {

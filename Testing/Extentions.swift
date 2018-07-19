@@ -16,7 +16,7 @@ extension SignUp: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         if let email = tf_Email.text, let password = tf_Password.text, let userName = tf_Username.text {
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let firebaseError = error {
-                    print(firebaseError.localizedDescription)
+                    Utility_GlobleAction.showAlert("Error", message: firebaseError.localizedDescription, viewController: self, OtherButtons: ["Ok"], type: "Simple")
                     return
                 }
                 guard let userInfo = user?.user else{
@@ -28,7 +28,7 @@ extension SignUp: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                 let userReference = ref.child("user").child(userInfo.uid)
                 userReference.updateChildValues(params, withCompletionBlock:{(err, ref) in
                     if err != nil {
-                        print(err!.localizedDescription)
+                        Utility_GlobleAction.showAlert("Error", message: err?.localizedDescription, viewController: self, OtherButtons: ["Ok"], type: "Simple")
                         return
                     }
                     self.loging()
@@ -49,7 +49,6 @@ extension SignUp: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         imgPicker.allowsEditing = true
         imgPicker.sourceType = .camera
         imgPicker.mediaTypes = [kUTTypeImage as String]
-        imgPicker.modalPresentationStyle = .popover
         present(imgPicker, animated: true, completion: nil)
     }
     
@@ -87,5 +86,30 @@ extension SignUp: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         alert.addAction(cameraAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension SignIn {
+    func checkIfUserIsLoggedIn() {
+        let user = Auth.auth().currentUser
+        if (user != nil) {
+            
+            let ref = Database.database().reference()
+            ref.child("user").child(user!.uid).observeSingleEvent(of: .value, with: {(snapshot) in
+                if let dict = snapshot.value as? [String: AnyObject] {
+                    print(dict["userName"] as! String)
+                    self.performSegue(withIdentifier: kHomeSegue, sender: nil)
+                }
+            })
+            
+            
+        }else {
+            do {
+                try Auth.auth().signOut()
+                
+            }catch let firebaseError as NSError {
+                Utility_GlobleAction.showAlert("Error", message: firebaseError.localizedDescription, viewController: self, OtherButtons: ["Ok"], type: "simple")
+            }
+        }
     }
 }
